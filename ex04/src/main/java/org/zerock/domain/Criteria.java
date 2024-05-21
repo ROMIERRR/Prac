@@ -16,6 +16,9 @@ public class Criteria {
 	
 	private String type;
 	private String keyword;
+
+
+ 
 	
 	public Criteria() {
 		this(1,10);

@@ -1,15 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ include file="../includes/header.jsp" %>
 
+<script type="text/javascript" src="/resources/js/reply.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	console.log(replyService);
+});
+</script>
 <script type="text/javascript">
 //사용자가 버튼을 클릭하면 operForm이라는 id를 가진<form> 태그를 전송해야 하므로 추가적인 JavaScript처리가 필요
 $(document).ready(function(){
-	
 	var operForm = $("#operForm");
 	
 	//사용자가 수정 버튼을 누르는 경우에는 bno값을 같이 전달하고 <form> 태그를 submit 시켜서 처리
@@ -19,14 +23,13 @@ $(document).ready(function(){
 	
 	//만일 사용자가 list로 이동하는 경우에는 아직 아무런 데이터도 필요하지 않으므로<form> 태그 내의 bno 태그를 지우고
 	//submit을 통해서 리스트 페이지로 이동
-	$("button[data-oper='list']").on("click", function(e){
-		
+	$("button[data-oper='list']").on("click", function(e){	
 		operForm.find("#bno").remove();
 		operForm.attr("action", "/board/list");
 		operForm.submit();
-		
-	});	
-});
+	  });	
+   });
+   
 </script>
 
 <div class="row">
